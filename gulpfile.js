@@ -63,5 +63,5 @@ gulp.task('reload', function() {
     .pipe(plugins.connect.reload());
 });
 
-gulp.task('build', ['templates', 'concat', 'clean']);
+gulp.task('build', ['templates', 'concat', 'bower', 'clean']);
 gulp.task('default', ['build', 'connect']);
