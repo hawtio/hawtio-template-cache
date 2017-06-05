@@ -1,29 +1,20 @@
-var gulp = require('gulp'),
-    wiredep = require('wiredep').stream,
-    del = require('del'),
-    gulpLoadPlugins = require('gulp-load-plugins');
-
-var plugins = gulpLoadPlugins({ lazy: false });
-var pkg = require('./package.json');
+var gulp = require('gulp');
+var templateCache = require('gulp-angular-templatecache');
+var concat = require('gulp-concat');
+var connect = require('gulp-connect');
+var del = require('del');
 
 var config = {
   src: 'plugins/**/*.js',
   templates: 'plugins/**/*.html',
-  js: pkg.name + '.js',
-  template: pkg.name + '-template.js',
-  templateModule: pkg.name + '-template'
+  js: 'hawtio-template-cache.js',
+  template: 'hawtio-template-cache-template.js',
+  templateModule: 'hawtio-template-cache-template'
 };
-
-gulp.task('bower', function() {
-  gulp.src('index.html')
-    .pipe(wiredep({
-    }))
-    .pipe(gulp.dest('.'));
-});
 
 gulp.task('templates', function() {
   return gulp.src(config.templates)
-    .pipe(plugins.angularTemplatecache({
+    .pipe(templateCache({
       filename: 'templates.js',
       root: 'plugins/',
       standalone: true,
@@ -35,7 +26,7 @@ gulp.task('templates', function() {
 
 gulp.task('concat', ['templates'], function() {
   return gulp.src([config.src, './templates.js'])
-    .pipe(plugins.concat(config.js))
+    .pipe(concat(config.js))
     .pipe(gulp.dest('./dist/'));
 });
 
@@ -44,13 +35,9 @@ gulp.task('clean', ['concat'], function() {
 });
 
 gulp.task('connect', function() {
-  plugins.watch([config.src, config.templates], function() {
-    gulp.start('build');
-  });
-  plugins.watch(['libs/**/*.js', 'libs/**/*.css', 'index.html', 'dist/' + config.js], function() {
-    gulp.start('reload');
-  });
-  plugins.connect.server({
+  gulp.watch([config.src, config.templates], ['build']);
+  gulp.watch(['dist/' + config.js], ['reload']);
+  connect.server({
     root: '.',
     livereload: true,
     port: 2772,
@@ -60,8 +47,8 @@ gulp.task('connect', function() {
 
 gulp.task('reload', function() {
   gulp.src('.')
-    .pipe(plugins.connect.reload());
+    .pipe(connect.reload());
 });
 
-gulp.task('build', ['templates', 'concat', 'bower', 'clean']);
+gulp.task('build', ['templates', 'concat', 'clean']);
 gulp.task('default', ['build', 'connect']);

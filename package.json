@@ -1,24 +1,25 @@
 {
-  "name": "hawtio-template-cache",
+  "name": "@hawtio/template-cache",
+  "version": "3.0.1",
+  "main": "dist/hawtio-template-cache.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
   },
+  "dependencies": {
+    "@hawtio/core": "^3.0.4",
+    "angular-route": "^1.6.4"
+  },
   "devDependencies": {
-    "bower": "^1.0.0",
-    "del": "^2.0.0",
-    "gulp": "^3.0.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
-    "gulp-concat": "^2.0.0",
-    "gulp-connect": "^2.0.0",
-    "gulp-load-plugins": "^1.0.0",
-    "gulp-sourcemaps": "^1.0.0",
-    "gulp-typescript": "^3.0.0",
-    "gulp-watch": "^3.0.0",
-    "require-dir": "~0.3.0",
-    "through2": "^2.0.0",
-    "typescript": "^2.0.0",
-    "which": "^1.0.0",
-    "wiredep": "^4.0.0"
-  }
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^2.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hawtio/hawtio-template-cache"
+  },
+  "license": "Apache-2.0"
 }
