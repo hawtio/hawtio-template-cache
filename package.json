@@ -1,6 +1,6 @@
 {
   "name": "@hawtio/template-cache",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "dist/hawtio-template-cache.js",
   "scripts": {
     "start": "gulp",
