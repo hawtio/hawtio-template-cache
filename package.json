@@ -2,20 +2,23 @@
   "name": "@hawtio/template-cache",
   "version": "3.0.2",
   "main": "dist/hawtio-template-cache.js",
+  "types": "dist/hawtio-template-cache.d.ts",
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
   },
   "dependencies": {
-    "@hawtio/core": "^3.0.4",
+    "@hawtio/core": "^3.0.9",
+    "@hawtio/core-dts": "^3.0.12",
+    "@types/angular": "^1.6.18",
     "angular-route": "^1.6.4"
   },
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^2.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-connect": "^2.3.1"
+    "gulp-connect": "^5.0.0",
+    "gulp-typescript": "^3.1.7",
+    "typescript": "^2.3.4"
   },
   "repository": {
     "type": "git",

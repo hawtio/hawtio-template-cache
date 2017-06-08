@@ -40,7 +40,8 @@ var templateCache;
 
     // extend templateRequest so we can prevent it from requesting templates, as
     // we have 'em all in $templateCache
-    $provide.decorator('$templateRequest', ['$rootScope', '$timeout', '$q', '$templateCache', '$delegate', function($rootScope, $timeout, $q, $templateCache, $delegate) {
+    $provide.decorator('$templateRequest', ['$rootScope', '$timeout', '$q', '$templateCache', '$delegate',
+        function($rootScope, $timeout, $q, $templateCache, $delegate) {
       var fn = function(url, ignore) {
         var log = Logger.get('$templateRequest');
         //log.debug("request for template at: ", url);
@@ -70,7 +71,7 @@ var templateCache;
           return deferred.promise;
         }
       };
-      fn.totalPendingRequests = 0;
+      fn['totalPendingRequests'] = 0;
       return fn;
     }]);
   }]);
