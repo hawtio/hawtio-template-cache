@@ -5,7 +5,8 @@
   "types": "dist/hawtio-template-cache.d.ts",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "install:dev": "yarn install --flat --prod && yarn install"
   },
   "dependencies": {
     "@hawtio/core": "^3.0.9",
