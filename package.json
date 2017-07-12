@@ -1,6 +1,6 @@
 {
   "name": "@hawtio/template-cache",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "main": "dist/hawtio-template-cache.js",
   "types": "dist/hawtio-template-cache.d.ts",
   "scripts": {
