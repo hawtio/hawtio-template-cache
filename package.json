@@ -9,10 +9,10 @@
     "install:dev": "yarn install --flat --prod && yarn install"
   },
   "dependencies": {
-    "@hawtio/core": "^3.0.9",
-    "@hawtio/core-dts": "^3.0.12",
-    "@types/angular": "^1.6.18",
-    "angular-route": "^1.6.4"
+    "@hawtio/core": "~3.0.9",
+    "@hawtio/core-dts": "~3.0.12",
+    "@types/angular": "~1.6.18",
+    "angular-route": "~1.6.4"
   },
   "devDependencies": {
     "del": "^2.2.2",
@@ -25,5 +25,8 @@
     "type": "git",
     "url": "https://github.com/hawtio/hawtio-template-cache"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
 }
